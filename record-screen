@@ -1,0 +1,10 @@
+#!/bin/bash
+
+urxvt -e \
+    ffmpeg \
+        -f x11grab \
+        -video_size 1920x1080 \
+        -framerate 24 \
+        -i :0.0+1920,0 \
+        -vcodec libx264 \
+        ~/Videos/screen-recordings/$(date '+%d-%m-%Y_%H:%M:%S').mp4

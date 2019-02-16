@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $RANDOM -gt $((32767 / 2)) ]; then
+    notify-send "Heads"
+else
+    notify-send "Tails"
+fi

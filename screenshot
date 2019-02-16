@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SELECTED=$(echo -e "Full screen\nFocused window\nSelect area" | dmenu -fn "Roboto Mono for Powerline-11" -p "Take screenshot of")
+
+OPTION=$([ "$SELECTED" == "Focused window" ] && echo "-u")
+OPTION=$([ "$SELECTED" == "Select area" ] && echo "-s")
+
+IMAGE=~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').png
+
+scrot $OPTION -q 90 $IMAGE && xclip -selection clipboard -t image/png -i $IMAGE

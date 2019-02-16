@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case "$1" in
+	"Build-in")
+		cp -f ~/Code/dotfiles/.xinitrc-build-in ~/Code/dotfiles/.xinitrc
+		cp -f ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
+	;;
+	"Home")
+		cp -f ~/Code/dotfiles/.xinitrc-home ~/Code/dotfiles/.xinitrc
+		cp -f ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
+	;;
+	"Peakfijn")
+		cp -f ~/Code/dotfiles/.xinitrc-peakfijn ~/Code/dotfiles/.xinitrc
+		cp -f ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
+	;;
+esac

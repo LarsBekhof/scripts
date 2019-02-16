@@ -1,0 +1,3 @@
+#!/bin/bash
+
+[ $(echo -e "No\nYes" | dmenu -i -fn 'Roboto Mono for Powerline-11' -p "$1") == "Yes" ] && $2
