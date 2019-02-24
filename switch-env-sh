@@ -6,14 +6,17 @@ case "$INPUT" in
 	"build-in" | "b")
 		cp -f ~/Code/dotfiles/.xinitrc-build-in ~/Code/dotfiles/.xinitrc
 		cp -f ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
+		echo "Env: Build-in"
 	;;
 	"home" | "h")
 		cp -f ~/Code/dotfiles/.xinitrc-home ~/Code/dotfiles/.xinitrc
 		cp -f ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
+		echo "Env: Home"
 	;;
 	"peakfijn" | "p")
 		cp -f ~/Code/dotfiles/.xinitrc-peakfijn ~/Code/dotfiles/.xinitrc
 		cp -f ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
+		echo "Env: Peakfijn"
 	;;
     *)
         printf "\"$1\" is not an option try:\n\t(B)uild-in\n\t(H)ome\n\t(P)eakfijn\n"
