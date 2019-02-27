@@ -25,3 +25,5 @@ case "$INPUT" in
     *)
         echo "No such environtent"
 esac
+
+startx
