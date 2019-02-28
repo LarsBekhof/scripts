@@ -16,3 +16,5 @@ case "$SELECTED" in
 		cp -f ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
 	;;
 esac
+
+i3-msg restart
