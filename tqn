@@ -10,12 +10,24 @@ if [ ! -d $NOTES_DIR ]; then
 	mkdir $NOTES_DIR
 fi
 
-# Create a file name if none was specified
-if [ -z "$1" ]; then
-	NAME=$(date +%d-%m-%Y_%H:%M:%S).$EXT
-else
-	NAME=$1.$EXT
+# Date
+DATE=$(date '+%d-%m-%Y-%H:%M:%S')
+
+# User input
+NAME=$1
+
+# Ask for file name if none was specified
+if [ -z "$NAME" ]; then
+	printf Name:\ 
+	read NAME
+
+	if [ -z "$NAME" ]; then
+		NAME=$DATE
+	fi
 fi
+
+# Give the files the extention
+NAME=$NAME.$EXT
 
 # Open the file for editing
 vim $NOTES_DIR/$NAME
