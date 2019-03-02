@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# File extention
+EXT=md
+# Location where the notes will be stored
+NOTES_DIR=$HOME/Notes
+
+# Create notes dir if it doesn't exits
+if [ ! -d $NOTES_DIR ]; then
+	mkdir $NOTES_DIR
+fi
+
+# Create a file name if none was specified
+if [ -z "$1" ]; then
+	NAME=$(date +%d-%m-%Y_%H:%M:%S).$EXT
+else
+	NAME=$1.$EXT
+fi
+
+# Open the file for editing
+vim $NOTES_DIR/$NAME
