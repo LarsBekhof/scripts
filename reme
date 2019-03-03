@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Constants
+REMINDERS_DIR=$HOME/Reminders
+DATE=$(date '+%d-%m-%Y_%H:%M:%S')
+
+
+# Create Reminders dir if it doesn't exits
+if [ ! -d $REMINDERS_DIR ]; then
+	mkdir $REMINDERS_DIR
+fi
+
+
+read -p "Remind you when? (s)econds, (m)inutes, (h)ours, (d)ays, (w)eeks: " REMIND_IN
+
+# Normalize input
+REMIND_IN=$(echo $REMIND_IN | tr '[:lower:]' '[:upper:]')
+
+case "$REMIND_IN" in
+	"S") ;&
+	"SECONDS")
+		read -p "Seconds: " SEC
+		;;
+	"M") ;&
+	"MINUTES")
+		read -p "Minutes: " MIN
+		SEC=($MIN * 60)
+		;;
+	"H") ;&
+	"HOURS")
+		read -p "Hours: " HOU
+		SEC=($HOU * 60 * 60)
+		;;
+	"D") ;&
+	"DAYS")
+		read -p "Days: " DAY
+		SEC=($DAY * 60 * 60 * 24)
+		;;
+	"W") ;&
+	"WEEKS")
+		read -p "Weeks: " WEE
+		SEC=($WEE * 60 * 60 * 24 * 7)
+		;;
+esac
+
+read -p "Remind you of what? : " REMINDER
+
+
+# Create file
+touch "$REMINDERS_DIR/$DATE"
+chmod +x "$REMINDERS_DIR/$DATE"
+echo -e "wall DISPLAY=:0.0 notify-send Reminder \"$REMINDER\"" >> "$REMINDERS_DIR/$DATE"
+
+systemd-run --uid=$USER --on-active=$SEC "$REMINDERS_DIR/$DATE"
