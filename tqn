@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # Constants
-EXT=md
+EXT=txt
 NOTES_DIR=$HOME/Notes
-DATE=$(date '+%d-%m-%Y\_%H:%M:%S')
-NOTE_TEMPLATE="Prio (sometime, low, mid, high):\nDate: $DATE\nMessage: "
+DATE=$(date '+%d-%m-%Y_%H:%M:%S')
 
 
 # Create notes dir if it doesn't exits
@@ -21,24 +20,25 @@ NAME=$1
 if [ -z "$NAME" ]; then
 	read -p "Name: " NAME
 	
-	# If no name is specified date the name to the date
+	# If no name is specified use the date as name
 	if [ -z "$NAME" ]; then
 		NAME=$DATE
 	fi
 fi
 
 
+read -p "Prio (sometime, low, medium, high): " PRIO
+read -p "Message: " MESSAGE
+
+
 # Give the files the extention
-NAME=$NAME.$EXT
+NAME="$NAME.$EXT"
 
 
 # Create file
-touch $NOTES_DIR/$NAME
+touch "$NOTES_DIR/$NAME"
 
 
-# Insert note template
-echo -e $NOTE_TEMPLATE > $NOTES_DIR/$NAME
-
-
-# Open file for editing
-vim $NOTES_DIR/$NAME
+echo -e "Date of creation: $DATE" >> "$NOTES_DIR/$NAME"
+echo -e "Prio: $PRIO" >> "$NOTES_DIR/$NAME"
+echo -e "Message: $MESSAGE" >> "$NOTES_DIR/$NAME"
