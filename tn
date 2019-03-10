@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DATE=`date +%d:%m:%Y_%H:%M`
+
+NOTE="$HOME/Notes/$DATE.md"
+
+touch $NOTE
+
+i3-sensible-terminal -e vim $NOTE
