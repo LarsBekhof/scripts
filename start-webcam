@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTIONS=$(ls /dev/video* | tr '[:space:]' '\012')
+OPTIONS=$(ls /dev/video* | ag "video[02468]" | tr '[:space:]' '\012')
 
 WEBCAM=$(echo "$OPTIONS" | dmenu -fn "Roboto Mono for Powerline-11" -p "Select display")
 
