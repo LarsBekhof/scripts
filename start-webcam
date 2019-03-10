@@ -4,6 +4,4 @@ OPTIONS=$(ls /dev/video* | tr '[:space:]' '\012')
 
 WEBCAM=$(echo "$OPTIONS" | dmenu -fn "Roboto Mono for Powerline-11" -p "Select display")
 
-echo "$WEBCAM"
-
 $(mpv --demuxer-lavf-format video4linux2 --demuxer-lavf-o-set input_format=mjpeg "$WEBCAM" &nohup)
