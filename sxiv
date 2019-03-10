@@ -1,3 +1,9 @@
 #!/bin/bash
 
-/usr/bin/sxiv "$1" & disown
+for FILE in "$@"; do
+	FILES="$FILES $FILE"
+done
+
+echo "$FILES"
+
+/usr/bin/sxiv $FILES & disown
