@@ -1,0 +1,6 @@
+#!/bin/bash
+
+OUT=$(fzf)
+
+echo $PWD/$(dirname $OUT)
+cd $PWD/$(dirname $OUT)
