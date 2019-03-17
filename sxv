@@ -6,4 +6,4 @@ done
 
 echo "$FILES"
 
-/usr/bin/sxiv $FILES & disown
+sxiv $FILES & disown
