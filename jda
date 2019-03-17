@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /
-cd $(dirname $(fzf))
+cd /$(dirname $(fzf))
