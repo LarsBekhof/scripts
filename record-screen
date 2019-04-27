@@ -1,10 +1,30 @@
 #!/bin/bash
 
+SCREEN=$(printf "Main\nTop\nBottom\nLeft\nRight" | dmenu -i -fn 'Roboto Mono for Powerline-11' -p "Capture: ")
+
+case "$SCREEN" in
+    "Main")
+        OFFSET=""
+    ;;
+    "Top")
+        OFFSET="+0,1080"
+    ;;
+    "Bottom")
+        OFFSET="-0,1080"
+    ;;
+    "Left")
+        OFFSET="-1920,0"
+    ;;
+    "Right")
+        OFFSET="+1920,0"
+    ;;
+esac
+
 urxvt -e \
     ffmpeg \
         -f x11grab \
         -video_size 1920x1080 \
         -framerate 24 \
-        -i :0.0,0 \
+        -i :0.0$OFFSET \
         -vcodec libx264 \
         ~/Videos/screen-recordings/$(date '+%d-%m-%Y_%H:%M:%S').mp4
