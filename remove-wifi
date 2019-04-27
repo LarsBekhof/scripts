@@ -1,0 +1,7 @@
+#!/bin/bash
+
+nmcli connection show
+
+read -p "SSID: " SSID
+
+nmcli connection delete "$SSID"

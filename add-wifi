@@ -1,7 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 
 nmcli device wifi list
 
 read -p "SSID: " SSID
 
-nmcli device wifi connect $SSID --ask
+nmcli device wifi connect "$SSID" --ask
