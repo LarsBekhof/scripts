@@ -1,7 +1,15 @@
 #!/bin/bash
 
-nmcli device wifi list
+# Get all network names
+NETWORKS=$(nmcli device wifi list | cut -c 9- | tail -n +2 | ag -o "^.+(?=I)" | sort | uniq)
 
-read -p "SSID: " SSID
+# Remove separators
+NETWORKS=$(echo "$NETWORKS" | sed -n "/\-\-/!p")
 
-nmcli device wifi connect "$SSID" --ask
+# Remove white space
+NETWORKS=$(echo "$NETWORKS" | awk '{gsub(/^ +| +$/,"")} {print $0}')
+
+# Let the user pick a network
+NETWORK=$(echo "$NETWORKS" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Networks: ")
+
+i3-sensible-terminal -e nmcli device wifi connect "$NETWORK" --ask
