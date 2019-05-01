@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Master wifi controls
+# This script unifies all the wifi scripts
+CHOICE=$(echo -e "Add\nConnect\nRemove" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Wifi: ")
+
+case "$CHOICE" in
+	"Add")
+		add-wifi
+		;;
+	"Connect")
+		connect-wifi
+		;;
+	"Remove")
+		rm-wifi
+		;;
+esac
