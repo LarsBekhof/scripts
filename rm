@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $(pwd) == "/tmp" ]
+then
+	/bin/rm $*
+else
+	mv $* /tmp
+fi
