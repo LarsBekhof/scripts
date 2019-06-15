@@ -9,15 +9,15 @@ INPUT=$(echo $INPUT | tr "[:upper:]" "[:lower:]")
 case "$INPUT" in
 	"build-in" | "b")
 		cp -f ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
-		startx ~/Code/dotfiles/.xinitrc-build-in
+		startx "$HOME/Code/dotfiles/.xinitrc-build-in"
 	;;
 	"home" | "h")
 		cp -f ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
-		startx ~/Code/dotfiles/.xinitrc-home
+		startx "$HOME/Code/dotfiles/.xinitrc-home"
 	;;
 	"peakfijn" | "p")
 		cp -f ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
-		startx ~/Code/dotfiles/.xinitrc-peakfijn
+		startx "$HOME/Code/dotfiles/.xinitrc-peakfijn"
 	;;
 	*)
 		echo "No such environtent"
