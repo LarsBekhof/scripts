@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "Options: (B)uild-in, (H)ome, (P)eakfijn"
 
