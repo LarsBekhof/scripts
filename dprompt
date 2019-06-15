@@ -1,7 +1,0 @@
-#!/bin/zsh
-
-shopt -s expand_aliases
-
-source ~/.aliases
-
-[[ $(echo -e "No\nYes" | dmenu -p "$1") == "Yes" ]] && $2
