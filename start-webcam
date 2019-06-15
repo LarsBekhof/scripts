@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 OPTIONS=$(ls /dev/video* | ag "video[02468]" | tr '[:space:]' '\012')
 

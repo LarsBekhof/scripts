@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
+cd $ONP_FOLDER
+
+FOLDERS=$(ls "$ONP_FOLDER")
+
+case "$1" in
+	"all")
+		sxv */{*.jpg,*.png}
+		exit
+	;;
+	"unsafe")
+		sxv ../ssid
+		exit
+	;;
+esac
+
+function lower {
+	echo $(echo $1 | tr '[:upper:]' '[:lower:]')
+}
+
+for NAME in $@
+do
+	for FOLDER in $FOLDERS
+	do
+		if [ $(lower $FOLDER) == $(lower $NAME) ]
+		then
+			ALL="$ALL $FOLDER"
+		fi
+	done
+done
+
+sxv $ALL

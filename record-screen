@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
-SCREEN=$(printf "Main\nTop\nBottom\nLeft\nRight" | dmenu -i -fn 'Roboto Mono for Powerline-11' -p "Capture: ")
+source ~/.aliases
+
+SCREEN=$(printf "Main\nTop\nBottom\nLeft\nRight" | dmenu -p "Capture: ")
 
 case "$SCREEN" in
     "Main")

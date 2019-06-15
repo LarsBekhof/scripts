@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ $RANDOM -gt $((32767 / 2)) ]; then
     notify-send "Heads"

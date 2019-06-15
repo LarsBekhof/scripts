@@ -1,7 +1,0 @@
-#!/bin/bash
-
-NETWORKS=$(nmcli connection show | tail -n +2 | awk -F "  " '{print $1}')
-
-NETWORK=$(echo "$NETWORKS" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Networks: ")
-
-nmcli connection delete "$NETWORK"
