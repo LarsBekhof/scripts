@@ -9,6 +9,6 @@ in
 		xrandr --output eDP1 --off --output HDMI1 --auto --primary --output DP1 --auto --left-of HDMI1
 	;;
 	"peakfijn")
-		# xrandr --output eDP1 --auto --output --auto --primary
+		xrandr --output eDP1 --auto --output HDMI1 --auto --primary --above eDP1
 	;;
 esac
