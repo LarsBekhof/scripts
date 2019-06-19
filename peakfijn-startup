@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-nohup st &
-nohup st &
-nohup st &
-nohup st &
-nohup firefox "https://app.timelyapp.com/695465/calendar/day" "https://trello.com" "http://localhost:9000/#/containers" "https://bitbucket.org/dashboard/overview" &
-nohup slack &
-nohup "/home/lars/.local/share/DataGrip-2018.3.2/bin/datagrip.sh" &
+nohup st >/dev/null 2>&1 &
+nohup st >/dev/null 2>&1 &
+nohup st >/dev/null 2>&1 &
+nohup st >/dev/null 2>&1 &
+nohup firefox "https://app.timelyapp.com/695465/calendar/day" "https://trello.com" "http://localhost:9000/#/containers" "https://bitbucket.org/dashboard/overview" >/dev/null 2>&1 &
+nohup slack >/dev/null 2>&1 &
+nohup "/home/lars/.local/share/DataGrip-2018.3.2/bin/datagrip.sh" >/dev/null 2>&1 &
