@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
 cd $ONP_FOLDER
@@ -24,11 +24,13 @@ for NAME in $@
 do
 	for FOLDER in $FOLDERS
 	do
-		if [ $(lower $FOLDER) == $(lower $NAME) ]
+		if [ "$(lower $FOLDER)" = "$(lower $NAME)" ]
 		then
 			ALL="$ALL $FOLDER"
 		fi
 	done
 done
+
+echo $ALL
 
 sxv $ALL
