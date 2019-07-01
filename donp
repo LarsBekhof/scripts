@@ -3,6 +3,6 @@
 ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
 cd $ONP_FOLDER
 
-ITEM=$(ls -d */ | tr -d "/" | dmenu -fn "Roboto Mono for Powerline-11" -p "Select folder:")
+ITEM="$(echo "$(ls -d */)\nUnsafe\nAll" | tr -d "/" | dmenu -fn "Roboto Mono for Powerline-11" -p "Select folder:")"
 
-sxv $ITEM
+onp $ITEM

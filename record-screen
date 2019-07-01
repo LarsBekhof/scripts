@@ -2,31 +2,20 @@
 
 source ~/.aliases
 
-SCREEN=$(printf "Main\nTop\nBottom\nLeft\nRight" | dmenu -p "Capture: ")
+DISPLAY_LINES=$(xrandr | ag "connected ([0-9]|primary)")
+DISPLAYS=$(printf "$DISPLAY_LINES" | ag --only-matching "^.*?(?=\s)")
+OFFSETS=$(printf "$DISPLAY_LINES" | ag --only-matching "(\+|-){1}[0-9]*(\+|-)[0-9]*")
 
-case "$SCREEN" in
-    "Main")
-        OFFSET=""
-    ;;
-    "Top")
-        OFFSET="+0,1080"
-    ;;
-    "Bottom")
-        OFFSET="-0,1080"
-    ;;
-    "Left")
-        OFFSET="-1920,0"
-    ;;
-    "Right")
-        OFFSET="+1920,0"
-    ;;
-esac
+DISPLAY=$(printf "$DISPLAYS" | dmenu -p "Capture: ")
 
-urxvt -e \
+LINE_NUMBER=$(printf "$DISPLAYS" | ag --numbers "$DISPLAY" | ag --only-matching "^[0-9]*?(?=\\:)")
+OFFSET=$(printf "$OFFSETS" | sed -n "${LINE_NUMBER}p")
+
+i3-sensible-terminal -e \
     ffmpeg \
         -f x11grab \
         -video_size 1920x1080 \
         -framerate 24 \
-        -i :0.0$OFFSET \
+        -i :0.0+$OFFSET \
         -vcodec libx264 \
         ~/Videos/screen-recordings/$(date '+%d-%m-%Y_%H:%M:%S').mp4

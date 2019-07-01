@@ -1,13 +1,17 @@
 #!/bin/bash
 
+function lower {
+	echo $(echo $1 | tr '[:upper:]' '[:lower:]')
+}
+
 ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
 cd $ONP_FOLDER
 
 FOLDERS=$(ls "$ONP_FOLDER")
 
-case "$1" in
+case "$(lower $1)" in
 	"all")
-		sxv */{*.jpg,*.png}
+		sxv */{*.jpg,*.png} ../ssid/*
 		exit
 	;;
 	"unsafe")
@@ -15,10 +19,6 @@ case "$1" in
 		exit
 	;;
 esac
-
-function lower {
-	echo $(echo $1 | tr '[:upper:]' '[:lower:]')
-}
 
 for NAME in $@
 do
