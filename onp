@@ -15,7 +15,7 @@ case "$(lower $1)" in
 		exit
 	;;
 	"unsafe")
-		sxv ../ssid
+		sxv ../ssid/**
 		exit
 	;;
 esac

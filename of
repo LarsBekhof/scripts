@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+FILE=$(fzf)
+
+xdg-open $FILE
