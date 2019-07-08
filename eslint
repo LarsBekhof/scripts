@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-ag -u -g "eslint\.js$" | read ESLINT_PATH
-
-if [ -n $ESLINT_PATH ]
-then
-	node $ESLINT_PATH $@
-fi

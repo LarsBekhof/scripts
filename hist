@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+source ~/.aliases
+
+COMMANDS=$(
+	echo -e "$(tail -n 1000 ~/.zsh_history)" | \
+		tac | \
+		ag --only-matching ";.*" | \
+		sed "s/^.//g"
+)
+
+echo -e "$COMMANDS" | \
+	dmenu -i -l 10 -p "History: " | \
+	xclip -selection clipboard
