@@ -1,5 +1,5 @@
 #!/bin/zsh
 
-DIR=$(fzf | ag --only-matching ".*\/")
+DIR=$(find . -type d | fzf)
 
 cd $(pwd)/$DIR
