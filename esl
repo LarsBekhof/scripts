@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+NODE_MODULES_ESLINT=node_modules/eslint/bin/eslint.js
+
+if [ -f $NODE_MODULES_ESLINT ]
+then
+	$NODE_MODULES_ESLINT $@
+else
+	eslint $@
+fi
