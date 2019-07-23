@@ -3,7 +3,23 @@
 BACKLIGHT_LOCATION=/sys/class/backlight/intel_backlight
 
 MAX_BRIGHTNESS=$(cat $BACKLIGHT_LOCATION/max_brightness)
+BRIGHTNESS=$(cat $BACKLIGHT_LOCATION/brightness)
 STEP=$((MAX_BRIGHTNESS / 100))
-PERCENT=$(seq 0 10 100 | dmenu)
 
-echo $(($PERCENT * $STEP)) > $BACKLIGHT_LOCATION/brightness
+if [ -z "$1" ]
+then
+	PERCENT=$(seq 0 10 100 | dmenu)
+
+	echo $(($PERCENT * $STEP)) > $BACKLIGHT_LOCATION/brightness
+else
+	if [[ "$1" == "up" ]]
+	then
+		echo $(($BRIGHTNESS + $STEP * $2)) > $BACKLIGHT_LOCATION/brightness
+	elif [[ "$1" == "down" ]]
+	then
+		echo $(($BRIGHTNESS - $STEP * $2)) > $BACKLIGHT_LOCATION/brightness
+	else
+		echo $(($STEP * $1)) > $BACKLIGHT_LOCATION/brightness
+	fi
+fi
+
