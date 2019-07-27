@@ -1,8 +1,7 @@
 #!/bin/zsh
 
-urxvt -e \
-    ffmpeg \
-        -f pulse \
-        -i default \
-        -ac 1 \
-        ~/Music/audio-recordings/$(date '+%d-%m-%Y_%H:%M:%S').mp3
+ffmpeg \
+	-f pulse \
+	-i default \
+	-ac 1 \
+	~/Music/audio-recordings/$(date '+%d-%m-%Y_%H:%M:%S').mp3
