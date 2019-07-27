@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ALARM_FILE=~/Music/Wecker-sound.mp3
+
+while :
+do
+	play $ALARM_FILE
+done
