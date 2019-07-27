@@ -1,6 +1,8 @@
 # Some helpful scripts
 Only the scripts which are actually maybe useful and work are described here.
 
+You likely want to add this repository to your PATH for easy usage.
+
 ## backlightctl
 Controls the screen birghtness for when xbacklight doesn't work.
 
