@@ -2,12 +2,9 @@
 
 source ~/.aliases
 
-# Master wifi controls
-# This script unifies all the wifi scripts
 CHOICE=$(echo -e "Add\nConnect\nRemove" | dmenu -p "Wifi: ")
 
 function add {
-	echo test
 	# Get all network names
 	NETWORKS=$(nmcli device wifi list | cut -c 9- | tail -n +2 | awk -F "  " '{print $1}' | sort | uniq)
 
@@ -20,7 +17,7 @@ function add {
 	# Let the user pick a network
 	NETWORK=$(echo "$NETWORKS" | dmenu -p "Networks: ")
 
-	i3-sensible-terminal -e nmcli device wifi connect "$NETWORK" --ask
+	nmcli device wifi connect "$NETWORK" --ask
 }
 
 function connect {
