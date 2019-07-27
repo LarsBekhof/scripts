@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 nohup st >/dev/null 2>&1 &
 nohup st >/dev/null 2>&1 &

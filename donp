@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
 cd $ONP_FOLDER

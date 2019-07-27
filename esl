@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 NODE_MODULES_ESLINT=node_modules/eslint/bin/eslint.js
 

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 BACKLIGHT_LOCATION=/sys/class/backlight/intel_backlight
 
