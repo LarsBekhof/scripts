@@ -6,7 +6,7 @@ in
 		xrandr --output eDP-1 --auto --primary
 	;;
 	"home")
-		xrandr --output eDP-1 --off --output HDMI1 --auto --primary --output DP1 --auto --left-of HDMI1
+		xrandr --output eDP-1 --off --output DP-1 --auto --primary --output DP-2 --auto --left-of DP-1
 	;;
 	"peakfijn")
 		xrandr --output eDP-1 --auto --output DP-1 --auto --primary --above eDP-1
