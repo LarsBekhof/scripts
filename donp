@@ -5,4 +5,9 @@ cd $ONP_FOLDER
 
 ITEM="$(echo "$(ls -d */)\nUnsafe\nAll" | tr -d "/" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Select folder:")"
 
+if [ "$ITEM" = "Unsafe" ]
+then
+	ITEM="../ssid/*/*"
+fi
+echo $ITEM
 sxv $ITEM

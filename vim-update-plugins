@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+BUNDLE_DIR="$HOME/.vim/bundle"
+
+for PLUGIN in $(ls $BUNDLE_DIR)
+do
+	cd "$BUNDLE_DIR/$PLUGIN"
+	git pull
+done

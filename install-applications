@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sudo apt install -y arandr arc-theme bc composer compton dunst firefox git htop i3 i3blocks i3lock lxappearance pavucontrol paper-icon-theme nitrogen redshift sxiv zsh scrot silversearcher-ag xinit fonts-powerline fzf
+
+mkdir ~/Code/apps
+
+git clone git@github.com:LarsBekhof/dmenu.git ~/Code/apps/dmenu
+cd ~/Code/apps/dmenu
+sudo make clean install
+
+git clone git@github.com:LarsBekhof/st.git ~/Code/apps/st
+cd ~/Code/apps/st
+sudo make clean install

@@ -8,15 +8,15 @@ INPUT=$(echo $INPUT | tr "[:upper:]" "[:lower:]")
 
 case "$INPUT" in
 	"build-in" | "b")
-		cp -f ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
+		ln -sf ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
 		startx
 	;;
 	"home" | "h")
-		cp -f ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
+		ln -sf ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
 		startx
 	;;
 	"peakfijn" | "p")
-		cp -f ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
+		ln -sf ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
 		startx
 	;;
 	*)

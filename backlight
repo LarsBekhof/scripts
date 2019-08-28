@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-BACKLIGHT_VALUE=$(cat /sys/class/backlight/intel_backlight/brightness)
-BACKLIGHT_VALUE_MAX=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-
-OUTPUT=$(echo - | awk '{print $BACKLIGHT_VALUE / $BACKLIGHT_VALUE_MAX * 100}')
-
-echo "${OUTPUT}%"
