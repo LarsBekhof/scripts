@@ -1,5 +1,7 @@
 #!/bin/bash
 
+I3_LOCATION=~/Code/dotfiles/.i3
+
 echo "Options: (B)uild-in, (H)ome, (P)eakfijn"
 
 read -p "Choice: " INPUT
@@ -8,15 +10,15 @@ INPUT=$(echo $INPUT | tr "[:upper:]" "[:lower:]")
 
 case "$INPUT" in
 	"build-in" | "b")
-		ln -sf ~/Code/dotfiles/.i3/config-build-in ~/Code/dotfiles/.i3/config
+		cat $I3_LOCATION/extends-build-in $I3_LOCATION/config-base > $I3_LOCATION/config
 		startx
 	;;
 	"home" | "h")
-		ln -sf ~/Code/dotfiles/.i3/config-home ~/Code/dotfiles/.i3/config
+		cat $I3_LOCATION/extends-home $I3_LOCATION/config-base > $I3_LOCATION/config
 		startx
 	;;
 	"peakfijn" | "p")
-		ln -sf ~/Code/dotfiles/.i3/config-peakfijn ~/Code/dotfiles/.i3/config
+		cat $I3_LOCATION/extends-peakfijn $I3_LOCATION/config-base > $I3_LOCATION/config
 		startx
 	;;
 	*)
