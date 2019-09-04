@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DESCRIPTIONS=$(pactl list sinks | ag Description | cut --complement -c 1-13)
+
+DESCRIPTION=$(printf "$DESCRIPTIONS" | dmenu -i -fn "Roboto Mono for Powerline-11" -p "Select output:")
+
+INDEX=$(printf "$DESCRIPTIONS" | ag --number "$DESCRIPTION" | sed 's/:.*//')
+INDEX=$(($INDEX - 1))
+
+pactl set-default-sink $INDEX
+pactl move-sink-input A $INDEX
