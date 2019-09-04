@@ -1,0 +1,9 @@
+#!/bin/sh
+
+BACKLIGHT_LOCATION=/sys/class/backlight/intel_backlight
+MAX_BRIGHTNESS=$(cat $BACKLIGHT_LOCATION/max_brightness)
+BRIGHTNESS=$(cat $BACKLIGHT_LOCATION/brightness)
+
+echo "$(echo "scale=2; $BRIGHTNESS / $MAX_BRIGHTNESS * 100" | bc | cut -c "-3" | tr -d \.)%"
+
+
