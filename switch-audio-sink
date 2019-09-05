@@ -11,7 +11,6 @@ SINK_NAMES=$(pactl list sinks | ag Name | cut --complement -c 1-7)
 
 # Get the index of the default sink
 DEFAULT_INDEX=$(printf "$SINK_NAMES" | ag --number "$SINK_DEFAULT" | sed 's/:.*//' )
-echo $DEFAULT_INDEX
 
 # Get the audio sink descriptions
 SINK_DESCRIPTIONS=$(pactl list sinks | ag Description | cut --complement -c 1-13)
