@@ -124,6 +124,10 @@ Add, connect to or remove wifi connections
 ## switch-audio-sink
 Switch audio devices without hazzle
 
+### Usage
+- `switch-audio-sink`
+- Select the audio sink you want to switch to
+
 ### Prerequisites
 - Have pactl installed
 - Have dmenu installed
