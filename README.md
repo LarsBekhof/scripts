@@ -120,3 +120,11 @@ Add, connect to or remove wifi connections
 ### Prerequisites
 - Have NetworkManager installed
 - Have dmenu installed
+
+## switch-audio-sink
+Switch audio devices without hazzle
+
+### Prerequisites
+- Have pactl installed
+- Have dmenu installed
+- Have ag installed (ag could be replaced with grep)
