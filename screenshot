@@ -7,4 +7,4 @@ OPTION=$([ "$SELECTED" == "Select area" ] && echo "-s")
 
 IMAGE=~/Pictures/Screenshots/$(date '+%d-%m-%Y_%H:%M:%S').png
 
-scrot $OPTION -q 90 $IMAGE && xclip -selection clipboard -t image/png -i $IMAGE
+scrot $OPTION -q 75 $IMAGE && xclip -selection clipboard -t image/png -i $IMAGE
