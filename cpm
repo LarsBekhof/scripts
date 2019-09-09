@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -n "$1" ]
+then
+	cd $1
+fi
+
+REMOVE_FILE=$(fzf -m)
+
+read -p "Location: " LOCATION
+
+cp $REMOVE_FILE $LOCATION
