@@ -10,15 +10,15 @@ INPUT=$(echo $INPUT | tr "[:upper:]" "[:lower:]")
 
 case "$INPUT" in
 	"build-in" | "b")
-		cat $I3_LOCATION/extends-build-in $I3_LOCATION/config-base > $I3_LOCATION/config
+		cat $I3_LOCATION/config-base $I3_LOCATION/extends-build-in >  $I3_LOCATION/config
 		startx
 	;;
 	"home" | "h")
-		cat $I3_LOCATION/extends-home $I3_LOCATION/config-base > $I3_LOCATION/config
+		cat $I3_LOCATION/config-base $I3_LOCATION/extends-home >  $I3_LOCATION/config
 		startx
 	;;
 	"peakfijn" | "p")
-		cat $I3_LOCATION/extends-peakfijn $I3_LOCATION/config-base > $I3_LOCATION/config
+		cat $I3_LOCATION/config-base $I3_LOCATION/extends-peakfijn >  $I3_LOCATION/config
 		startx
 	;;
 	*)
