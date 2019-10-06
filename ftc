@@ -1,7 +1,0 @@
-#!/bin/sh
-
-for F in $@
-do
-	C=$((($F - 32) * 5 / 9))
-	echo "$F˚F = $C˚C"
-done
