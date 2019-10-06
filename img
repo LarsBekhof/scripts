@@ -1,3 +1,8 @@
-#!/bin/sh
+#!/bin/zsh
 
-sxiv -s f "$@" &
+if [ -z $@ ]
+then
+	sxiv -s f *.(png|jpg|jpeg|gif) &
+else
+	sxiv -s f $@ &
+fi
