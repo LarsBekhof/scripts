@@ -1,5 +1,0 @@
-#!/bin/sh
-
-DIR=$(find . -type d | fzf)
-
-cd $(pwd)/$DIR

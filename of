@@ -1,5 +1,0 @@
-#!/bin/sh
-
-FILE=$(fzf)
-
-vim $FILE
