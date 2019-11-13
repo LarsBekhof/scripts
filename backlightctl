@@ -1,4 +1,7 @@
 #!/bin/bash
+# MAN: Control backlight percentage.
+# ARG: None: Use dmenu to set the backlight percentage.
+# ARG: $1: up/down $2: percentage.
 
 BACKLIGHT_LOCATION=/sys/class/backlight/intel_backlight
 

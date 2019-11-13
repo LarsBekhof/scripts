@@ -1,4 +1,7 @@
 #!/bin/sh
+# MAN:
+# ARG:
+
 
 ONP_FOLDER="$HOME/Documents/cda/lessthanthree2"
 cd $ONP_FOLDER

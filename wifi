@@ -1,4 +1,6 @@
 #!/bin/bash
+# MAN:
+# ARG:
 
 source ~/.aliases
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+# MAN:
+# ARG:
 
 FILE=$(ag -n -g '' | fzf -m)
 

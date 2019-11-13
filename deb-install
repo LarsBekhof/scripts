@@ -1,4 +1,6 @@
 #!/bin/sh
+# MAN:
+# ARG:
 
 sudo dpkg -i $1
 sudo apt -f install

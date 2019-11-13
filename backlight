@@ -1,4 +1,5 @@
 #!/bin/sh
+# MAN: Prints the backlight value in percentage.
 
 BACKLIGHT_LOCATION=/sys/class/backlight/intel_backlight
 MAX_BRIGHTNESS=$(cat $BACKLIGHT_LOCATION/max_brightness)

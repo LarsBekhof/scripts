@@ -1,4 +1,6 @@
 #!/bin/zsh
+# MAN:
+# ARG:
 
 # Pathogen install
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
@@ -45,3 +47,6 @@ git clone https://github.com/junegunn/fzf.vim.git ~/.vim/bundle/fzf-vim
 
 # NERDTree
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+# GraphQL
+git clone https://github.com/jparise/vim-graphql.git ~/.vim/bundle/vim-graphql

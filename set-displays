@@ -1,4 +1,6 @@
 #!/bin/zsh
+# MAN:
+# ARG:
 
 case "$1"
 in

@@ -1,4 +1,6 @@
 #!/bin/bash
+# MAN:
+# ARG:
 
 I3_LOCATION=~/Code/dotfiles/.i3
 

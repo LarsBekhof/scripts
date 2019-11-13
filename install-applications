@@ -1,4 +1,6 @@
 #!/bin/sh
+# MAN:
+# ARG:
 
 sudo apt install -y arandr arc-theme bc composer compton dunst firefox git htop i3 i3blocks i3lock lxappearance pavucontrol paper-icon-theme nitrogen redshift sxiv zsh scrot silversearcher-ag xinit fonts-powerline fzf
 

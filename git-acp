@@ -1,3 +1,5 @@
 #!/bin/sh
+# MAN:
+# ARG:
 
 git add -A && git commit -m "no message" && git push

@@ -1,4 +1,6 @@
 #!/bin/sh
+# MAN:
+# ARG:
 
 sudo chown -R $USER:www-data storage
 sudo chown -R $USER:www-data bootstrap/cache
