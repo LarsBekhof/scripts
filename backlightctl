@@ -11,7 +11,7 @@ STEP=$((MAX_BRIGHTNESS / 100))
 
 if [ -z "$1" ]
 then
-	PERCENT=$(seq 0 10 100 | dmenu)
+	PERCENT=$(seq 0 10 100 | dmenu -i -fn "Roboto Mono for Powerline-11" -p "%:")
 
 	echo $(($PERCENT * $STEP)) > $BACKLIGHT_LOCATION/brightness
 else
