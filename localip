@@ -1,5 +1,3 @@
 #!/bin/sh
-# MAN:
-# ARG:
 
-ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | ag inet | ag -o "([0-9]|\.){7,13}(?=\/)" | xargs echo
+ip addr show | sed -n "/\(wl.\+\|en.\+\)state UP/,/valid_lft/p" | rg inet | rg -o "([0-9]{1,3}\.*){4}" | head -n 1
