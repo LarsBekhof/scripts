@@ -15,10 +15,10 @@ do
 	echo "${BLUE}$(echo $FILE)${NG}"
 
 	# Print man
-	echo "${RED}Manual:${NG}\n$(cat "$DIR/$FILE" | ag "^# MAN:" | cut -c "1-7" --complement)"
+	echo "${RED}Manual:${NG}\n$(cat "$DIR/$FILE" | grep "^# MAN:" | cut -c "1-7" --complement)"
 
 	# Print arguments
-	printf "${RED}Arguments:${NG}\n$(cat "$DIR/$FILE" | ag "^# ARG:" | cut -c "1-7" --complement)${NG}"
+	printf "${RED}Arguments:${NG}\n$(cat "$DIR/$FILE" | grep "^# ARG:" | cut -c "1-7" --complement)${NG}"
 
 	echo "\n"
 done
