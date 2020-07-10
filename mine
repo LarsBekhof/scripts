@@ -1,5 +1,3 @@
 #!/bin/sh
-# MAN:
-# ARG:
 
 sudo chown $USER:$USER $@
