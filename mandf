@@ -1,5 +1,0 @@
-#!/bin/sh
-
-man -t $1 | ps2pdf - /tmp/"$1.pdf"
-
-xdg-open /tmp/"$1.pdf"
