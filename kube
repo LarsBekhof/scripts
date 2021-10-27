@@ -1,0 +1,17 @@
+#!/bin/sh
+
+ENVS="accp-1\naccp-2\naccp-3\naccp-4\naccp-5"
+
+SELECTED_ENV=$(echo $ENVS | fzf)
+
+if [ -z "$SELECTED_ENV" ]; then
+	exit 0
+fi
+
+SELECTED_POD=$(kubectl get po -n $SELECTED_ENV --no-headers -o custom-columns=":metadata.name" | fzf)
+
+if [ -z "$SELECTED_POD" ]; then
+	exit 0
+fi
+
+kubectl exec -it $SELECTED_POD /bin/sh -n $SELECTED_ENV
