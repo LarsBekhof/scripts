@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ENVS="accp-1\naccp-2\naccp-3\naccp-4\naccp-5"
+ENVS="accp-1\naccp-2\naccp-3\naccp-4\naccp-5\noaky-prod"
 
 SELECTED_ENV=$(echo $ENVS | fzf)
 
