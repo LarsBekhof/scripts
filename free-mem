@@ -1,0 +1,8 @@
+#!/bin/sh
+
+FREE_MEM=$(free -m | sed -n '2p' | awk '{print $4}')
+
+if [ $FREE_MEM -lt 1000 ]
+then
+	pkill $@
+fi
