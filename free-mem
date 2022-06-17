@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FREE_MEM=$(free -m | sed -n '2p' | awk '{print $4}')
+FREE_MEM=$(free -m | sed -n '2p' | awk '{print $7}')
 
 if [ $FREE_MEM -lt 1000 ]
 then
