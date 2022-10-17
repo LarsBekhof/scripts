@@ -38,7 +38,7 @@ select_pod() {
 		exit 0
 	fi
 
-	kubectl exec -it $SELECTED_POD /bin/sh -n $SELECTED_ENV
+	kubectl exec -it $SELECTED_POD -n $SELECTED_ENV -- /bin/sh
 }
 
 select_cluster
