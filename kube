@@ -1,30 +1,46 @@
 #!/bin/sh
 
-CLUSTERS="Acceptation\nProduction"
+CLUSTERS=
+SELECTED_CLUSTER=
+SELECTED_ENV=
+SELECTED_POD=
 
-SELECTED_CLUSTER=$(echo $CLUSTERS | fzf)
+select_cluster() {
+	CLUSTERS="Acceptation\nProduction"
+	SELECTED_CLUSTER=$(echo $CLUSTERS | fzf)
 
-case $SELECTED_CLUSTER in
-	"Acceptation")
-		aws eks update-kubeconfig --name oaky-staging-2
-		;;
-	"Production")
-		aws eks --region eu-central-1 update-kubeconfig --name oaky-prod
-		;;
-esac
+	case $SELECTED_CLUSTER in
+		"Acceptation")
+			aws eks update-kubeconfig --name oaky-staging-2
+			;;
+		"Production")
+			aws eks --region eu-central-1 update-kubeconfig --name oaky-prod
+			;;
+	esac
+}
 
-ENVS="accp-1\naccp-2\naccp-3\naccp-4\naccp-5\noaky-prod"
+select_env() {
+	if [ $SELECTED_CLUSTER = "Acceptation" ]; then
+		SELECTED_ENV=$(echo "accp-1\naccp-2\naccp-3\naccp-4\naccp-5" | fzf)
+	else
+		SELECTED_ENV="oaky-prod"
+	fi
 
-SELECTED_ENV=$(echo $ENVS | fzf)
+	if [ -z "$SELECTED_ENV" ]; then
+		exit 0
+	fi
+}
 
-if [ -z "$SELECTED_ENV" ]; then
-	exit 0
-fi
+select_pod() {
+	SELECTED_POD=$(kubectl get po -n $SELECTED_ENV --no-headers -o custom-columns=":metadata.name" | fzf)
 
-SELECTED_POD=$(kubectl get po -n $SELECTED_ENV --no-headers -o custom-columns=":metadata.name" | fzf)
+	if [ -z "$SELECTED_POD" ]; then
+		exit 0
+	fi
 
-if [ -z "$SELECTED_POD" ]; then
-	exit 0
-fi
+	kubectl exec -it $SELECTED_POD -- /bin/sh -n $SELECTED_ENV
+}
 
-kubectl exec -it $SELECTED_POD /bin/sh -n $SELECTED_ENV
+select_cluster
+select_env
+select_pod
