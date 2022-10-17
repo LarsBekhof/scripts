@@ -16,7 +16,11 @@ select_cluster() {
 		"Production")
 			aws eks --region eu-central-1 update-kubeconfig --name oaky-prod
 			;;
+		*)
+			exit 0
 	esac
+
+
 }
 
 select_env() {
